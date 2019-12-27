@@ -7,13 +7,14 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages="com.niit.*")
-public class AppContext extends WebMvcConfigurerAdapter
+public class AppContext implements WebMvcConfigurer
 {
 	
 	@Bean
@@ -25,13 +26,13 @@ public class AppContext extends WebMvcConfigurerAdapter
 		return resolver;
 	}
 	
-	 @Override
-	   public void addResourceHandlers(ResourceHandlerRegistry registry) 
+	 public void addResourceHandlers(ResourceHandlerRegistry registry) 
 	   {
 //	       registry.addResourceHandler("/images/**") 
 //	                 .addResourceLocations("/WEB-INF/resources/images/");
 	       registry.addResourceHandler("/css/**") 
-         			.addResourceLocations("/WEB-INF/resources/css/");
+         			.addResourceLocations("/WEB-INF/css/")
+         			.setCachePeriod(999999);
 //	       registry.addResourceHandler("/js/**") 
 //					.addResourceLocations("/WEB-INF/resources/js/");
 //	       registry.addResourceHandler("/videos/**") 
@@ -44,7 +45,6 @@ public class AppContext extends WebMvcConfigurerAdapter
 	   }
 	 
 	    
-	   @Override
 	   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) 
 	   {
 	       configurer.enable();

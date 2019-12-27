@@ -23,7 +23,7 @@ public class DbConfig
 		cfg.configure("hibernate.cfg.xml");
 		cfg.addAnnotatedClass(User.class);
 		ServiceRegistry registry=new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
-		factory=cfg.buildSessionFactory();
+		factory=cfg.buildSessionFactory(registry);
 	}
 	
 	public static Session getSession()
