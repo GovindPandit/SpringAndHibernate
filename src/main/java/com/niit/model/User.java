@@ -20,6 +20,21 @@ public class User
 	private String username;
 	private String email;
 	private String password;
+	private String authority;
+	private boolean status;
+	
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public int getUserid() {
 		return userid;
 	}

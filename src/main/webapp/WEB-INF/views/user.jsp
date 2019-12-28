@@ -26,7 +26,7 @@
 						<h4 class="price">current price: <span>Rs. 180</span></h4>
 						<div class="action">
 							<a class="add-to-cart btn btn-warning" type="button">Add To Cart</a>
-							<a class="add-to-cart btn btn-primary" type="button">Buy</a>
+							<a class="add-to-cart btn btn-primary" href="${pageContext.request.contextPath}/order/buy" type="button">Buy</a>
 						</div>
 					</div>
 				</div>

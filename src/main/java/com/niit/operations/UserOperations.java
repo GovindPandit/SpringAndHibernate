@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.niit.dbconfig.DbConfig;
 import com.niit.model.User;
@@ -19,6 +20,10 @@ public class UserOperations
 			
 			Session session=DbConfig.getSession();
 			tx=session.beginTransaction();
+			
+			user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+			user.setAuthority("user");
+			user.setStatus(true);
 			
 			session.save(user);
 			tx.commit();
@@ -85,6 +90,23 @@ public class UserOperations
 			Session session=DbConfig.getSession();
 			Query query=session.createQuery("from com.niit.model.User where userid= :id");
 			query.setParameter("id", userid);
+			return (User)query.list().get(0);
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+			return null;
+		}
+	}
+	
+
+	public User displaybyName(String username)
+	{
+		try
+		{
+			Session session=DbConfig.getSession();
+			Query query=session.createQuery("from com.niit.model.User where username= :username");
+			query.setParameter("username", username);
 			return (User)query.list().get(0);
 		}
 		catch (Exception e) 

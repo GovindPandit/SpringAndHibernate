@@ -22,4 +22,10 @@ public class IndexController
 		map.addAttribute("user",new User());
 		return "register";
 	}
+	
+	@RequestMapping("/login")
+	public String m4()
+	{
+		return "login";
+	}
 }
