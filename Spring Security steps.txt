@@ -1,0 +1,16 @@
+Spring security steps:
+
+1)Add following dependencies in pom.xml file.
+	-Spring-security-web
+	-Spring-security-config
+	-Spring-security-taglibs
+
+2)Create method in UserOerations class to get user data by username.
+2)Create UserDetailsServiceIMpL class
+3)Create SecurityWebApplicationInitializer class
+4)Create WebSecurityConfig classw
+5)Create login action method and login page
+6)Mention login url pattern, Success url , loginProcessingUrl and failure url  in WebSecurityConfig class.
+7)Add logout link in header.jsp and metion security tag to display links for authenticated user and unauthenticated users.
+8)Enter logout url in WebsecurityConfig.
+

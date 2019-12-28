@@ -1,0 +1,9 @@
+Steps to connect instamojo test.
+
+1)Goto test.instamojo.com
+2)Sign up with your details and enter your pan number
+3)Click on api & plugins
+4)Scroll down
+5)Create new credientials -> Select your language from drop down -> generate credentials.
+6)Add instamojo dependency from mvn repository website.
+7)Copy instamojo code from springandhibernate project.
